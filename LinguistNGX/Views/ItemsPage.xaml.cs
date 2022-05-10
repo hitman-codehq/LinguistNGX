@@ -28,6 +28,9 @@ namespace LinguistNGX.Views
         {
             base.OnAppearing();
             _viewModel.OnAppearing();
+
+            if (_viewModel.Items.Count == 0)
+                _viewModel.IsBusy = true;
         }
     }
 }

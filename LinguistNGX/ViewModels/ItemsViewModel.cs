@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Threading.Tasks;
@@ -79,8 +80,7 @@ namespace LinguistNGX.ViewModels
             if (item == null)
                 return;
 
-            // This will push the ItemDetailPage onto the navigation stack
-            await Shell.Current.GoToAsync($"{nameof(ItemDetailPage)}?{nameof(ItemDetailViewModel.ItemId)}={item.Id}");
+            await Shell.Current.GoToAsync($"{nameof(TestPage)}?dictionary={item.Text}");
         }
     }
 }

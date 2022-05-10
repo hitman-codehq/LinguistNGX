@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="LinguistNGX.Views.TestPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d" d:DesignWidth="480" d:DesignHeight="768">
+
+    <!-- shell:SystemTray.IsVisible="True"> -->
+    <!-- FontFamily="{StaticResource PhoneFontFamilyNormal}" -->
+    <!-- FontSize="{StaticResource PhoneFontSizeNormal}" -->
+    <!-- Foreground="{StaticResource PhoneForegroundBrush}" -->
+    <!-- SupportedOrientations="Portrait" Orientation="Portrait" -->
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--TitlePanel contains the name of the application and page title-->
+        <StackLayout x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28">
+            <Label x:Name="ApplicationTitle" Text="Linguist" Style="{DynamicResource TitleStyle}"/>
+        </StackLayout>
+
+        <!--ContentPanel - place additional content here-->
+        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid Grid.ColumnSpan="2" Grid.RowSpan="2">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Label x:Name="rightTitle" Grid.Column="0" Style="{DynamicResource SubtitleStyle}"/>
+                    <Label x:Name="remainingTitle" Grid.Column="1" HorizontalTextAlignment="Center" Style="{DynamicResource SubtitleStyle}"/>
+                    <Label x:Name="wrongTitle" Grid.Column="2" Style="{DynamicResource SubtitleStyle}"/>
+
+                    <Label x:Name="rightNum" Grid.Row="1" Grid.Column="0" Style="{DynamicResource SubtitleStyle}"/>
+                    <Label x:Name="remainingNum" Grid.Row="1" Grid.Column="1" HorizontalTextAlignment="Center" Style="{DynamicResource SubtitleStyle}"/>
+                    <Label x:Name="wrongNum" Grid.Row="1" Grid.Column="2" Style="{DynamicResource SubtitleStyle}"/>
+                </Grid>
+
+                <StackLayout x:Name="allWordsPanel" Grid.ColumnSpan="2" Grid.Row="1" HorizontalOptions="Center" VerticalOptions="Center">
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="screenTap" NumberOfTapsRequired="1"/>
+                    </StackLayout.GestureRecognizers>
+
+                    <Label x:Name="foreignWord" Text="Foreign Word" Style="{DynamicResource SubtitleStyle}" HorizontalTextAlignment="Center"/>
+                    <Label x:Name="blank" Text=" "/>
+                    <Label x:Name="englishWord" Text="English Word" Style="{DynamicResource SubtitleStyle}" HorizontalTextAlignment="Center"/>
+                </StackLayout>
+
+                <StackLayout Grid.Row="2" Grid.ColumnSpan="2" Orientation="Horizontal">
+                    <Button x:Name="Right" Background="LightGreen" Image="Check.png" IsEnabled="False" Clicked="Right_Click"/>
+                    <Button x:Name="Scratch" Background="Orchid" Image="Images/QuestionMark.png" IsEnabled="False" Clicked="Scratch_Click"/>
+                    <Button x:Name="Wrong" Background="Red" Image="Images/Cancel.png" IsEnabled="False" Clicked="Wrong_Click"/>
+                </StackLayout>
+
+                <Entry x:Name="searchString" Grid.Row="3"/>
+                <Button x:Name="search" Text="Search" Grid.Column="1" Grid.Row="3" Clicked="search_Click"/>
+            </Grid>
+        </Grid>
+    </Grid>
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem
+            IconImageSource="Add.png"
+            Text="Add"
+            x:Name="newTaskAppBarButton"
+            Order="Primary"
+            Priority="0"
+            Clicked="newTaskAppBarButton_Click"/>
+
+        <ToolbarItem
+            IconImageSource="Groups.png"
+            Text="Groups"
+            x:Name="selectGroup"
+            Order="Primary"
+            Priority="1"
+            Clicked="selectGroup_Click"/>
+
+        <ToolbarItem
+            IconImageSource="Swap.png"
+            Text="Swap"
+            x:Name="swap"
+            Order="Primary"
+            Priority="2"
+            Clicked="swap_Click"/>
+    </ContentPage.ToolbarItems>
+
+    <!-- <shell:ApplicationBar.MenuItems>
+        <shell:ApplicationBarMenuItem
+            Text="Count Words"
+            Click="countWords_Click"/>
+
+        <shell:ApplicationBarMenuItem
+            Text="Test All Groups"
+            Click="testAllGroups_Click"/>
+
+        <shell:ApplicationBarMenuItem
+            Text="Test Current Group"
+            Click="testCurrentGroup_Click"/>
+
+        <shell:ApplicationBarMenuItem
+            Text="Test Scratch Group"
+            Click="testScratchGroup_Click"/>
+
+        <shell:ApplicationBarMenuItem
+            Text="Test Subwords"
+            Click="testSubWords_Click"/>
+
+        <shell:ApplicationBarMenuItem
+            Text="Clear Scratch Group"
+            Click="clearScratchGroup_Click"/> -->
+</ContentPage>
