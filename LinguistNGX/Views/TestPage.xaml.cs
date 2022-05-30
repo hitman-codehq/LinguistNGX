@@ -181,7 +181,7 @@ namespace LinguistNGX.Views
             // Clear the group set flag before bringing up the SelectGroup page.  When the page returns
             // to this one, we can check to see if a group was selected by checking the value of this variable
             App.ViewModel.groupSet = false;
-            //NavigationService.Navigate(new Uri("/SelectGroup.xaml", UriKind.Relative));
+            Shell.Current.GoToAsync($"{nameof(SelectGroupPage)}");
         }
 
         private void swap_Click(object sender, EventArgs e)

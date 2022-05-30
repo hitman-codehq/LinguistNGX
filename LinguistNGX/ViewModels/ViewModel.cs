@@ -199,8 +199,8 @@ namespace LinguistNGX.ViewModels
         {
             // Perform a query that comprises all items in the database, and put them into a collection that
             // will never change during the lifetime of the application
-            //using (var databaseContext = new DatabaseContext())
-            var itemsInDatabase = dataContext.Entries.ToList();
+            var itemsInDatabase = from Entry item in dataContext.Entries
+                                  select item;
 
             allItems = new ObservableCollection<Entry>(itemsInDatabase);
 
@@ -208,10 +208,9 @@ namespace LinguistNGX.ViewModels
             // and put them into a second collection for testing
             if ((testType == TestTypes.Group) && (groupName != String.Empty))
             {
-                itemsInDatabase = dataContext.Entries.ToList();
-                /*itemsInDatabase = from Entry item in dataContext.Items
+                itemsInDatabase = from Entry item in dataContext.Entries
                                   where item.Group.Name == groupName
-                                  select item;*/
+                                  select item;
 
                 testItems = new ObservableCollection<Entry>(itemsInDatabase);
             }
@@ -220,10 +219,9 @@ namespace LinguistNGX.ViewModels
             // in either the foreign or English fields
             else if (testType == TestTypes.SubWords)
             {
-                itemsInDatabase = dataContext.Entries.ToList();
-                /*itemsInDatabase = from Entry item in dataContext.Items
+                itemsInDatabase = from Entry item in dataContext.Entries
                                   where item.Foreign.Contains(subWord) || item.English.Contains(subWord)
-                                  select item;*/
+                                  select item;
 
                 testItems = new ObservableCollection<Entry>(itemsInDatabase);
             }
@@ -251,7 +249,8 @@ namespace LinguistNGX.ViewModels
 
             // Perform a query that comprises all items in the scratch database, and put them into a collection
             // can be used for testing and modifying said scratch database
-            itemsInDatabase = scratchDataContext.Entries.ToList();
+            itemsInDatabase = from Entry item in scratchDataContext.Entries
+                              select item;
 
             scratchItems = new ObservableCollection<Entry>(itemsInDatabase);
         }

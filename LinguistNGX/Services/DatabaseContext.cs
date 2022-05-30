@@ -209,6 +209,13 @@ namespace LinguistNGX.Services
 
         private string _name;*/
 
+        // Written: Monday 30-May-2022 7:50 am, Oakwood Hotel & Apartments, Tokyo Azabu
+
+        public override string ToString()
+        {
+            return Name;
+        }
+
         //[Column]
         public string Name { get; set; }
         /*{
