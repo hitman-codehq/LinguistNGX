@@ -66,9 +66,9 @@
                         <TapGestureRecognizer Tapped="screenTap" NumberOfTapsRequired="1"/>
                     </StackLayout.GestureRecognizers>
 
-                    <Label x:Name="foreignWord" Text="Foreign Word" Style="{DynamicResource SubtitleStyle}" HorizontalTextAlignment="Center"/>
+                    <Label x:Name="foreignWord" Text="Foreign Word" Style="{DynamicResource SubtitleStyle}" HorizontalTextAlignment="Center" FontSize="26"/>
                     <Label x:Name="blank" Text=" "/>
-                    <Label x:Name="englishWord" Text="English Word" Style="{DynamicResource SubtitleStyle}" HorizontalTextAlignment="Center"/>
+                    <Label x:Name="englishWord" Text="English Word" Style="{DynamicResource SubtitleStyle}" HorizontalTextAlignment="Center" FontSize="26"/>
                 </StackLayout>
 
                 <StackLayout Grid.Row="2" Grid.ColumnSpan="2" Orientation="Horizontal">
