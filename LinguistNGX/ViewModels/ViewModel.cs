@@ -243,6 +243,7 @@ namespace LinguistNGX.ViewModels
             // Now query the database to find a list of available groups.  These will be displayed by pages
             // such as Entry and SelectGroup
             var groupsInDatabase = from Group target in dataContext.Groups
+                                   orderby target.Name
                                    select target;
 
             groups = new ObservableCollection<Group>(groupsInDatabase);
